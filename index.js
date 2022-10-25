@@ -6,11 +6,16 @@ const port = process.env.port || 5000;
 
 const courses = require("./courses.json");
 
+app.get("/", (req, res) => {
+  res.send(courses);
+});
 app.get("/courses", (req, res) => {
   res.send(courses);
 });
-app.get("/", (req, res) => {
-  res.send(courses);
+app.get("/courses/:id", (req, res) => {
+  const id = req.params.id;
+  const singleCourse = courses.find((c) => c.id == id);
+  res.send(singleCourse);
 });
 
 app.listen(port, () => {
