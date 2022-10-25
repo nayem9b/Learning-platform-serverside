@@ -12,9 +12,9 @@ app.get("/", (req, res) => {
 app.get("/courses", (req, res) => {
   res.send(courses);
 });
-app.get("/courses/:id", (req, res) => {
-  const id = req.params.id;
-  const singleCourse = courses.find((c) => c.id == id);
+app.get("/courses/:number", (req, res) => {
+  const number = req.params.number;
+  const singleCourse = courses.find((c) => c.number == number);
   res.send(singleCourse);
 });
 
